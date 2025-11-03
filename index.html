@@ -27,6 +27,7 @@
 				padding-top: clamp(20px, 5vw, 25px);
 				padding-bottom: clamp(40px, 8vw, 66px);
 				background-color: #171717;
+				overflow-x: hidden;
 			}
 
 			.container {
@@ -267,6 +268,108 @@
 					height: clamp(90px, 30vw, 110px);
 				}
 			}
+			/* Modal asosiy fon */
+			.modal {
+				display: none;
+				position: fixed;
+				z-index: 1000;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.7);
+				justify-content: center;
+				align-items: center;
+				color: #000;
+			}
+
+			.modal-content {
+				max-width: 570px;
+				background: white;
+				padding: 30px;
+				width: 90%;
+				position: relative;
+				text-align: center;
+
+				/* Animatsiya */
+				animation: modalFadeIn 0.4s ease-out;
+			}
+
+			.modal-title {
+				font-size: 25px;
+				font-weight: 600;
+				line-height: 1.2;
+			}
+			.close {
+				position: absolute;
+				right: 15px;
+				top: 15px;
+				font-size: 24px;
+				cursor: pointer;
+			}
+
+			.input {
+				width: 100%;
+				padding: 20px;
+				margin-bottom: 30px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				font-size: 20px;
+			}
+
+			input.error {
+				border: 2px solid red;
+			}
+
+			label {
+				display: block;
+				text-align: left;
+				font-size: 16px;
+				font-weight: 100;
+				margin-bottom: 6px;
+			}
+
+			.phone-wrapper {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.phone-wrapper .flag {
+				white-space: nowrap;
+			}
+
+			.submit-btn {
+				padding: 15px;
+				background-color: #e62421;
+				color: white;
+				border: none;
+				width: 100%;
+				border-radius: 5px;
+				font-weight: bold;
+				cursor: pointer;
+				margin-top: 15px;
+				text-decoration: none;
+				display: inline-block;
+			}
+
+			.error-msg {
+				display: none;
+				color: red;
+				text-align: left;
+				font-size: 12px;
+				margin-bottom: 25px;
+			}
+
+			.form-alert {
+				display: none;
+				background-color: #ff6b6b;
+				color: white;
+				padding: 30px;
+				margin-top: 10px;
+				border-radius: 5px;
+				font-weight: bold;
+			}
 		</style>
 
 		<link rel="stylesheet" href="css/styles.css" />
@@ -300,7 +403,36 @@
 					</div>
 				</div>
 				<div class="gradient"></div>
-				<button class="speaking__btn">>>> Bepul qatnashish <<<</button>
+				<button class="speaking__btn" onclick="openModal()">>>> Bepul qatnashish <<<</button>
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close" onclick="closeModal()">&times;</span>
+						<h2 class="modal-title">
+							Davom etish uchun <br />
+							ma'lumotlaringizni kiriting
+						</h2>
+
+						<label for="name">Ismingiz</label>
+						<input class="input" type="text" id="name" name="ism" placeholder="Ismingizni kiriting" />
+						<small class="error-msg" id="nameError">Required field</small>
+
+						<label for="phone">Telefon raqamingiz</label>
+						<div class="phone-wrapper">
+							<input class="input" type="tel" id="phone" name="number" placeholder="+998 99-999-9999" autocomplete="tel" />
+						</div>
+						<small class="error-msg" id="phoneError">Required field</small>
+
+						<div id="formAlert" class="form-alert">Please fill in all required fields</div>
+
+						<!-- DAVOM ETISH tugmasi -->
+						<a id="submitButton" class="submit-btn" onclick="validateForm()">DAVOM ETISH</a>
+
+						<!-- Yuklanmoqda tugmasi (dastlab yashirin) -->
+						<div id="loader" style="display: none; text-align: center; margin-top: 15px">
+							<button disabled class="submit-btn">⏳ Yuklanmoqda...</button>
+						</div>
+					</div>
+				</div>
 				<div class="speaking__join">
 					<p class="speaking__join-text">Darsga kirganalar uchun bonus:</p>
 					<img class="speaking__join-img" src="img/curve.webp" alt="curve" />
