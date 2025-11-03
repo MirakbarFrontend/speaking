@@ -4,8 +4,198 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Oxirgi qadam qoldi!</title>
-		<link rel="stylesheet" href="css/a.css" />
+		<!-- <link rel="stylesheet" href="css/a.css" /> -->
 	</head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Arial', sans-serif;
+			background-color: #f1f3f7;
+		}
+
+		.container {
+			background-color: #fff;
+			max-width: 900px;
+			margin: 80px auto;
+			padding: 30px 20px;
+			border-radius: 30px;
+			text-align: center;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			font-size: 52px;
+			font-weight: 700;
+			margin-bottom: 20px;
+		}
+
+		p {
+			font-size: 22px;
+			font-weight: 100;
+			margin-bottom: 30px;
+		}
+
+		.arrows span {
+			font-size: 28px;
+			color: #007bff;
+			margin: 0 5px;
+			animation: bounce 1s infinite alternate;
+		}
+
+		.subscribe-btn {
+			background-color: #00aaf2;
+			color: #fff;
+			padding: 25px 55px;
+			border-radius: 50px;
+			font-size: 18px;
+			text-decoration: none;
+			font-weight: bold;
+			box-shadow: 0 5px 0 #007bbf;
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			transition: 0.2s ease;
+			margin-top: 30px;
+		}
+
+		.subscribe-btn:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+		}
+		.tn-atom img {
+			top: 80px;
+			right: 0px;
+			position: absolute;
+			z-index: -1;
+			width: 100%;
+		}
+		.made-on {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 23px;
+			gap: 12px;
+			font-size: 11px;
+			color: #888;
+		}
+
+		/* Modal asosiy fon */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1000;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.7);
+			justify-content: center;
+			align-items: center;
+		}
+
+		.modal-content {
+			max-width: 570px;
+			background: white;
+			padding: 30px;
+			width: 90%;
+			position: relative;
+			text-align: center;
+
+			/* Animatsiya */
+			animation: modalFadeIn 0.4s ease-out;
+		}
+
+		.modal-title {
+			font-size: 25px;
+			font-weight: 600;
+			line-height: 1.2;
+		}
+		.close {
+			position: absolute;
+			right: 15px;
+			top: 15px;
+			font-size: 24px;
+			cursor: pointer;
+		}
+
+		.input {
+			width: 100%;
+			padding: 20px;
+			margin-bottom: 30px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-size: 20px;
+		}
+
+		input.error {
+			border: 2px solid red;
+		}
+
+		label {
+			display: block;
+			text-align: left;
+			font-size: 16px;
+			font-weight: 100;
+			margin-bottom: 6px;
+		}
+
+		.phone-wrapper {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.phone-wrapper .flag {
+			white-space: nowrap;
+		}
+
+		.submit-btn {
+			padding: 15px;
+			background-color: #e62421;
+			color: white;
+			border: none;
+			width: 100%;
+			border-radius: 5px;
+			font-weight: bold;
+			cursor: pointer;
+			margin-top: 15px;
+			text-decoration: none;
+			display: inline-block;
+		}
+
+		.error-msg {
+			display: none;
+			color: red;
+			text-align: left;
+			font-size: 12px;
+			margin-bottom: 25px;
+		}
+
+		.form-alert {
+			display: none;
+			background-color: #ff6b6b;
+			color: white;
+			padding: 30px;
+			margin-top: 10px;
+			border-radius: 5px;
+			font-weight: bold;
+		}
+
+		.iti {
+			width: 100%;
+		}
+		@keyframes modalFadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(40px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	</style>
 	<body>
 		<div class="container">
 			<div class="tn-atom">
