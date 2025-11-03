@@ -20,6 +20,7 @@ a {
 	padding-top: clamp(20px, 5vw, 25px);
 	padding-bottom: clamp(40px, 8vw, 66px);
 	background-color: #171717;
+	overflow-x: hidden;
 }
 
 .container {
@@ -75,7 +76,7 @@ a {
 
 .speaking__info-text {
 	font-weight: 500;
-	font-size: clamp(14px, 2vw, 16px);
+	font-size: clamp(13px, 2vw, 16px);
 	line-height: clamp(16px, 3vw, 18px);
 	max-width: clamp(200px, 60vw, 250px);
 	width: 100%;
@@ -145,14 +146,15 @@ a {
 	position: absolute;
 	z-index: 1;
 	top: clamp(-75px, -9vw, -90px);
-	right: clamp(-85px, -11vw, -120px);
+	right: clamp(-80px, -11vw, -120px);
 	border-radius: 100%;
 }
 
 .speaking__wrapper-back-img {
 	width: clamp(230px, 65vw, 280px);
-	height: clamp(260px, 70vw, 314px);
+	height: clamp(260px, 50vw, 314px);
 	position: absolute;
+	object-fit: contain;
 	z-index: 2;
 	top: clamp(-130px, -15vw, -160px);
 	right: clamp(-110px, -13vw, -140px);
@@ -163,7 +165,7 @@ a {
 	box-shadow: 0px clamp(3px, 1vw, 5px) 0px 0px #610606;
 	border-radius: 20px;
 	padding: clamp(15px, 3vw, 23px) clamp(18px, 4vw, 28px);
-	max-width: clamp(260px, 80vw, 330px);
+	max-width: clamp(300px, 80vw, 330px);
 	width: 100%;
 	border: none;
 	font-weight: 700;
